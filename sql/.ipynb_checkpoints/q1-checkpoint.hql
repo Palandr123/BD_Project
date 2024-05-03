@@ -4,12 +4,12 @@ USE team1_projectdb;
 
 DROP TABLE IF EXISTS q1_results;
 
--- Count incidents by incident_year
+-- Find mean response time (minute) by police districts
 
 CREATE EXTERNAL TABLE q1_results
 (
-    incident_year INT,
-    incident_count INT
+    police_district varchar(10),
+    mean_response_time float
 )
     ROW FORMAT DELIMITED
     FIELDS TERMINATED BY ','
@@ -17,12 +17,10 @@ CREATE EXTERNAL TABLE q1_results
 
 
 INSERT INTO q1_results
-SELECT incident_year,
-COUNT(*) AS incident_count
+SELECT police_district, AVG((report_datetime - incident_datetime) / 60) as mean_response_time
 FROM police_dept_incident_reports_part_buck AS incidents
-WHERE incident_year IS NOT NULL
-GROUP BY incident_year
-ORDER BY incident_count DESC;
+WHERE police_district IS NOT NULL AND incident_datetime IS NOT NULL AND report_datetime IS NOT NULL
+GROUP BY police_district;
 
 INSERT OVERWRITE DIRECTORY 'project/output/q1' 
 ROW FORMAT DELIMITED FIELDS 
