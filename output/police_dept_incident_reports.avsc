@@ -1,0 +1,217 @@
+{
+  "type" : "record",
+  "name" : "police_dept_incident_reports",
+  "doc" : "Sqoop import of police_dept_incident_reports",
+  "fields" : [ {
+    "name" : "incident_datetime",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "incident_datetime",
+    "sqlType" : "91"
+  }, {
+    "name" : "incident_date",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "incident_date",
+    "sqlType" : "91"
+  }, {
+    "name" : "incident_time",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "incident_time",
+    "sqlType" : "1"
+  }, {
+    "name" : "incident_year",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "incident_year",
+    "sqlType" : "4"
+  }, {
+    "name" : "incident_dow",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "incident_dow",
+    "sqlType" : "12"
+  }, {
+    "name" : "report_datetime",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "report_datetime",
+    "sqlType" : "91"
+  }, {
+    "name" : "row_id",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "row_id",
+    "sqlType" : "-5"
+  }, {
+    "name" : "incident_id",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "incident_id",
+    "sqlType" : "4"
+  }, {
+    "name" : "incident_number",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "incident_number",
+    "sqlType" : "4"
+  }, {
+    "name" : "cad_number",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "cad_number",
+    "sqlType" : "4"
+  }, {
+    "name" : "report_type_code",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "report_type_code",
+    "sqlType" : "1"
+  }, {
+    "name" : "report_type_description",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "report_type_description",
+    "sqlType" : "12"
+  }, {
+    "name" : "filled_online",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "filled_online",
+    "sqlType" : "-7"
+  }, {
+    "name" : "incident_code",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "incident_code",
+    "sqlType" : "4"
+  }, {
+    "name" : "incident_category",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "incident_category",
+    "sqlType" : "12"
+  }, {
+    "name" : "incident_subcategory",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "incident_subcategory",
+    "sqlType" : "12"
+  }, {
+    "name" : "incident_descr",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "incident_descr",
+    "sqlType" : "12"
+  }, {
+    "name" : "resolution",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "resolution",
+    "sqlType" : "12"
+  }, {
+    "name" : "intersection",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "intersection",
+    "sqlType" : "12"
+  }, {
+    "name" : "cnn",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "cnn",
+    "sqlType" : "4"
+  }, {
+    "name" : "police_district",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "police_district",
+    "sqlType" : "12"
+  }, {
+    "name" : "analysis_neigh",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "analysis_neigh",
+    "sqlType" : "12"
+  }, {
+    "name" : "supervisor_distr",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "supervisor_distr",
+    "sqlType" : "4"
+  }, {
+    "name" : "supervisor_distr_2012",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "supervisor_distr_2012",
+    "sqlType" : "4"
+  }, {
+    "name" : "latitude",
+    "type" : [ "null", "double" ],
+    "default" : null,
+    "columnName" : "latitude",
+    "sqlType" : "8"
+  }, {
+    "name" : "longitude",
+    "type" : [ "null", "double" ],
+    "default" : null,
+    "columnName" : "longitude",
+    "sqlType" : "8"
+  }, {
+    "name" : "datapoint",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "datapoint",
+    "sqlType" : "12"
+  }, {
+    "name" : "neighbourhoods",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "neighbourhoods",
+    "sqlType" : "4"
+  }, {
+    "name" : "esncag",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "esncag",
+    "sqlType" : "4"
+  }, {
+    "name" : "cm_polygon",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "cm_polygon",
+    "sqlType" : "4"
+  }, {
+    "name" : "cchr",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "cchr",
+    "sqlType" : "4"
+  }, {
+    "name" : "hsoc",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "hsoc",
+    "sqlType" : "4"
+  }, {
+    "name" : "iin",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "iin",
+    "sqlType" : "4"
+  }, {
+    "name" : "csd",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "csd",
+    "sqlType" : "4"
+  }, {
+    "name" : "cpd",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "cpd",
+    "sqlType" : "4"
+  } ],
+  "tableName" : "police_dept_incident_reports"
+}
