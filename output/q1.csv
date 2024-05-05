@@ -1,3 +1,12 @@
-incident_year,incident_count
-2023,71278
-2024,28722
+police_district,mean_response_time
+Bayview,4688.807
+Central,4757.431
+Ingleside,4797.4536
+Northern,4644.727
+Out of SF,6513.555
+Richmond,4726.083
+Southern,4861.099
+Mission,4317.1904
+Park,5355.8633
+Taraval,5483.636
+Tenderloin,2931.8772

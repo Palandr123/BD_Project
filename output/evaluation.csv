@@ -1,5 +1,5 @@
 model,Lat,Lon,RMSE,R2
-"LinearRegressionModel: uid=LinearRegression_df630da47c7e, numFeatures=22",No,Yes,0.016134416415665546,0.6268705819783952
-"LinearRegressionModel: uid=LinearRegression_98ba5a9080d2, numFeatures=22",Yes,No,0.019687173298776485,0.36583251646578374
-"GeneralizedLinearRegression, aggregationDepth=GeneralizedLinearRegression_f4aefcbf66aa__aggregationDepth, regParam=GeneralizedLinearRegression_f4aefcbf66aa__regParam",No,Yes,0.016110791309428787,0.6279625047341917
-"GeneralizedLinearRegression, aggregationDepth=GeneralizedLinearRegression_ed848f9bad58__aggregationDepth, regParam=GeneralizedLinearRegression_ed848f9bad58__regParam",Yes,No,0.019675380560583294,0.36659202938674784
+"LinearRegression, elasticNetParam=0.01, regParam=0.01",No,Yes,0.016134416412156644,0.6268705821406908
+"LinearRegression, elasticNetParam=0.01, regParam=0.01",Yes,No,0.019687173295389798,0.36583251668396755
+"GBTRegressor, maxDepth=2, lossType=squared",No,Yes,0.009121144989327284,0.880751840077987
+"GBTRegressor, maxDepth=2, lossType=squared",Yes,No,0.008482978533527114,0.8822573034935218

@@ -12,7 +12,7 @@ beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team1 -p $password -
 # Query 1
 beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team1 -p $password -f sql/q1.hql
 rm ./output/q1.csv
-echo "incident_year,incident_count" > ./output/q1.csv
+echo "police_district,mean_response_time" > ./output/q1.csv
 hdfs dfs -cat project/output/q1/* >> output/q1.csv
 
 # Query 2

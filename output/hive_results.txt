@@ -115,3 +115,6 @@
 . . . . . . . . . . . . . . . . . . . . . . .>     cpd,
 . . . . . . . . . . . . . . . . . . . . . . .>     incident_year
 . . . . . . . . . . . . . . . . . . . . . . .> FROM police_dept_incident_reports;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS police_dept_incident_reports;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 

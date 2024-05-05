@@ -8,7 +8,7 @@ import pyspark.sql.types as T
 from pyspark.sql import SparkSession
 from pyspark.ml import Pipeline
 from pyspark.ml.feature import StringIndexer, VectorAssembler
-from pyspark.ml.regression import LinearRegression, GeneralizedLinearRegression
+from pyspark.ml.regression import LinearRegression, GBTRegressor
 from pyspark.ml.evaluation import RegressionEvaluator
 from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
 
@@ -204,6 +204,7 @@ testData.select("features", "longitude", "latitude")\
 # https://stackoverflow.com/a/45077411
 
 # Make LinearRegression model
+print("Training Linear Regression...")
 lr_rmse = []
 lr_r2 = []
 best_models_1 = []
@@ -229,9 +230,11 @@ for predict_label in targets:
 
     cvModel = crossval.fit(trainingData)
     bestModel1 = cvModel.bestModel
+    BEST_EL_NET = str(bestModel1.getElasticNetParam())
+    BEST_REG = str(bestModel1.getRegParam())
     best_models_1.append("LinearRegression, elasticNetParam="
-                         f"{bestModel1.getElasticNetParam()},"
-                         f" regParam={bestModel1.getRegParam()}")
+                         f"{BEST_EL_NET},"
+                         f" regParam={BEST_REG}")
     bestModel1.write().overwrite().save(f"/user/{TEAM}/project/models"
                                         "/model1_{predict_label}")
     predictions = bestModel1.transform(testData)
@@ -251,12 +254,15 @@ for predict_label in targets:
     lr_r2.append(r2)
 
 # Make GeneralizedLinearRegression regressor
+print("Training GBT Regression...")
 dr_rmse = []
 dr_r2 = []
 best_models_2 = []
 for predict_label in targets:
-    glr = GeneralizedLinearRegression(featuresCol="features",
-                                      labelCol=predict_label)
+    gbt = GBTRegressor(featuresCol="features",
+                       labelCol=predict_label,
+                       maxBins=10000,
+                       seed=RANDOM_STATE)
 
     evaluator_rmse = RegressionEvaluator(labelCol=predict_label,
                                          predictionCol="prediction",
@@ -267,10 +273,10 @@ for predict_label in targets:
                                        metricName="r2")
 
     paramGrid = ParamGridBuilder().\
-        addGrid(glr.aggregationDepth, [2, 4, 6]).\
-        addGrid(glr.regParam, [0.01, 0.05, 0.1]).build()
+        addGrid(gbt.maxDepth, [2, 3, 5]).\
+        addGrid(gbt.lossType, ['squared', 'absolute']).build()
 
-    crossval = CrossValidator(estimator=glr,
+    crossval = CrossValidator(estimator=gbt,
                               estimatorParamMaps=paramGrid,
                               evaluator=evaluator_rmse,
                               numFolds=4,
@@ -278,10 +284,12 @@ for predict_label in targets:
 
     cvModel = crossval.fit(trainingData)
     bestModel2 = cvModel.bestModel
-    best_models_2.append("GeneralizedLinearRegression,"
-                         " aggregationDepth="
-                         f"{bestModel2.getAggregationDepth()},"
-                         f" regParam={bestModel2.getRegParam()}")
+    BEST_MAX_DEPTH = str(bestModel2.getMaxDepth())
+    BEST_LOSS_TYPE = str(bestModel2.getLossType())
+    best_models_2.append("GBTRegressor,"
+                         " maxDepth="
+                         f"{BEST_MAX_DEPTH},"
+                         f" lossType={BEST_LOSS_TYPE}")
     bestModel2.write().overwrite().\
         save(f"/user/{TEAM}/project/models/model2_{predict_label}")
     predictions = bestModel2.transform(testData)
@@ -317,3 +325,5 @@ df.coalesce(1)\
     .option("sep", ",")\
     .option("header", "true")\
     .save(f"/user/{TEAM}/project/output/evaluation.csv")
+
+print("Done!")
