@@ -1,3 +1,5 @@
+** Path  to our repository on IU cluster**: ```/home/team1/project/bigdata-final-project-iu-2024```
+
 This repository is a template for the final project of big data course in IU-2023. It contains the following directories:
 
 - `data/` contains the dataset files.
