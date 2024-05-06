@@ -1,6 +1,6 @@
 #!/bin/bash
 # Submit stage
-spark-submit --master yarn ./models/model.py
+spark-submit --master yarn ./scripts/model.py
 
 # Copy results to local
 # Linear regression
