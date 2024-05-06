@@ -4,7 +4,7 @@
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team1_projectdb;
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
-0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE police_dept_incident_reports STORED AS AVRO LOCATION 'project/warehouse/police_dept_incident_reports' TBLPROPERTIES ('avro.schem a.url'='project/warehouse/avsc/police_dept_incident_reports.avsc');
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE police_dept_incident_reports STORED AS AVRO LOCATION 'project/warehouse/po lice_dept_incident_reports' TBLPROPERTIES ('avro.schema.url'='project/warehouse/avsc/police_dept_incident_reports.avsc');
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SELECT * FROM police_dept_incident_reports LIMIT 10;
 +-------------------------------------------------+---------------------------------------------+---------------------------------------------+---------------------------------------------+--------------------------------------------+-----------------------------------------------+--------------------------------------+-------------------------------------------+-----------------------------------------------+------------------------------------------+------------------------------------------------+----------------------------------------------------+---------------------------------------------+---------------------------------------------+-------------------------------------------------+----------------------------------------------------+----------------------------------------------------+------------------------------------------+--------------------------------------------+-----------------------------------+-----------------------------------------------+----------------------------------------------+------------------------------------------------+----------------------------------------------------+----------------------------------------+-----------------------------------------+-------------------------------------------------+----------------------------------------------+--------------------------------------+------------------------------------------+------------------------------------+------------------------------------+-----------------------------------+-----------------------------------+-----------------------------------+
@@ -79,11 +79,11 @@
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
 0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT INTO police_dept_incident_reports_part_buck
 . . . . . . . . . . . . . . . . . . . . . . .> SELECT 
-. . . . . . . . . . . . . . . . . . . . . . .>     from_unixtime(FLOOR(CAST(incident_datetime AS BIGINT)/1000), 'yyyy-MM-dd HH:mm:ss.SSS') AS incident_datetime,
-. . . . . . . . . . . . . . . . . . . . . . .>     from_unixtime(FLOOR(CAST(incident_date AS BIGINT)/1000), 'yyyy-MM-dd HH:mm:ss.SSS') AS incident_date,
+. . . . . . . . . . . . . . . . . . . . . . .>     from_unixtime(FLOOR(CAST(incident_datetime AS BIGINT)/1000), 'yyyy-MM-dd HH:mm:ss.SSS') AS i ncident_datetime,
+. . . . . . . . . . . . . . . . . . . . . . .>     from_unixtime(FLOOR(CAST(incident_date AS BIGINT)/1000), 'yyyy-MM-dd HH:mm:ss.SSS') AS incid ent_date,
 . . . . . . . . . . . . . . . . . . . . . . .>     incident_time,
 . . . . . . . . . . . . . . . . . . . . . . .>     incident_dow,
-. . . . . . . . . . . . . . . . . . . . . . .>     from_unixtime(FLOOR(CAST(report_datetime AS BIGINT)/1000), 'yyyy-MM-dd HH:mm:ss.SSS') AS report_datetime,
+. . . . . . . . . . . . . . . . . . . . . . .>     from_unixtime(FLOOR(CAST(report_datetime AS BIGINT)/1000), 'yyyy-MM-dd HH:mm:ss.SSS') AS rep ort_datetime,
 . . . . . . . . . . . . . . . . . . . . . . .>     row_id,
 . . . . . . . . . . . . . . . . . . . . . . .>     incident_id,
 . . . . . . . . . . . . . . . . . . . . . . .>     incident_number,

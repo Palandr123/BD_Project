@@ -1,5 +1,5 @@
 model,Lat,Lon,RMSE,R2
-"LinearRegression, elasticNetParam=0.01, regParam=0.01",No,Yes,0.016134416412156644,0.6268705821406908
-"LinearRegression, elasticNetParam=0.01, regParam=0.01",Yes,No,0.019687173295389798,0.36583251668396755
-"GBTRegressor, maxDepth=2, lossType=squared",No,Yes,0.009121144989327284,0.880751840077987
-"GBTRegressor, maxDepth=2, lossType=squared",Yes,No,0.008482978533527114,0.8822573034935218
+"LinearRegression, elasticNetParam=0.01, regParam=0.01",No,Yes,0.016134416415665553,0.626870581978392
+"LinearRegression, elasticNetParam=0.01, regParam=0.01",Yes,No,0.019687173154185406,0.3658325257809809
+"GBTRegressor, maxDepth=2, lossType=squared",No,Yes,0.009121144989327284,0.8807518400779863
+"GBTRegressor, maxDepth=3, lossType=squared",Yes,No,0.008474922786057031,0.882480822876009
