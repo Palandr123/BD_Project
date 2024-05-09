@@ -38,3 +38,21 @@ beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team1 -p $password -
 rm ./output/q5.csv
 echo "day_of_week,incident_count_average" > ./output/q5.csv
 hdfs dfs -cat project/output/q5/* >> output/q5.csv
+
+# Query 6
+beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team1 -p $password -f sql/q6.hql
+rm ./output/q6.csv
+echo "day_of_week,mean_response_time" > ./output/q6.csv
+hdfs dfs -cat project/output/q6/* >> output/q6.csv
+
+# Query 7
+beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team1 -p $password -f sql/q7.hql
+rm ./output/q7.csv
+echo "hour,mean_response_time" > ./output/q7.csv
+hdfs dfs -cat project/output/q7/* >> output/q7.csv
+
+# Query 8
+beeline -u jdbc:hive2://hadoop-03.uni.innopolis.ru:10001 -n team1 -p $password -f sql/q8.hql
+rm ./output/q8.csv
+echo "latitude,longitude" > ./output/q8.csv
+hdfs dfs -cat project/output/q8/* >> output/q8.csv
